@@ -23,7 +23,7 @@ public class NutritionDataRepository implements INutritionDataRepository {
         valueMap.put(":v3", new AttributeValue().withN(String.valueOf(endDate)));
 
         DynamoDBQueryExpression<NutritionData> query = new DynamoDBQueryExpression<NutritionData>()
-                .withKeyConditionExpression("user_id = :v1 and updated_date between :v2 and :v3")
+                .withKeyConditionExpression("user_id = :v1 and created_date between :v2 and :v3")
                 .withExpressionAttributeValues(valueMap);
 
         return dynamoDBMapper.query(NutritionData.class, query);
