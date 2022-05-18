@@ -14,12 +14,12 @@ import java.util.List;
 @AllArgsConstructor
 public class Item {
 
-    public Item(String label, double amount) {
-        this.label = label;
+    public Item(String nutritionName, double amount) {
+        this.nutritionName = nutritionName;
         this.amount = amount;
     }
 
-    private String label;
+    private String nutritionName;
     private double amount;
     private double percentage;
     private List<SubItem> breakdown = new ArrayList<>();

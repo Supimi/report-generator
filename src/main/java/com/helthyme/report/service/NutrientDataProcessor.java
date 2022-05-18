@@ -115,10 +115,14 @@ public class NutrientDataProcessor {
         this.totalNutrientSumForItems.forEach((s, item) -> {
             double percentage = item.getAmount() / totalWeight * 100.0;
             item.setPercentage(Math.round(percentage * 100.0) / 100.0);
+            double roundedAmount = Math.round(item.getAmount() * 100.0) / 100.0;
+            item.setAmount(roundedAmount);
 
             item.getBreakdown().forEach(subItem -> {
-                double percent = subItem.getValue() / totalWeight * 100.0;
-                subItem.setValuePercentage(Math.round(percent * 100.0) / 100.0);
+                double percent = subItem.getBAmount() / totalWeight * 100.0;
+                double roundedBAmount = Math.round(subItem.getBAmount() * 100.0) / 100.0;
+                subItem.setValue(Math.round(percent * 100.0) / 100.0);
+                subItem.setBAmount(roundedBAmount);
             });
 
         });
