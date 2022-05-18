@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -19,4 +22,5 @@ public class Item {
     private String label;
     private double amount;
     private double percentage;
+    private List<SubItem> breakdown = new ArrayList<>();
 }

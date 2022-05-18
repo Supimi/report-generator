@@ -3,12 +3,12 @@ package com.helthyme.report.service;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.helthyme.report.Constants;
 import com.helthyme.report.model.UserData;
 import com.helthyme.report.repository.IUserDataRepository;
 import com.helthyme.report.repository.UserDataRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
 
 import java.util.Calendar;
 import java.util.List;
@@ -35,7 +35,7 @@ public class ReportGenerator {
 
         users.forEach(user -> {
             log.info("Initiating report generation for user:{} from {} to {}", user.getUserId(), fromDate, toDate);
-            NutrientDataProcessor processor = new NutrientDataProcessor(user.getUserId(), fromDate, toDate, dynamoDB);
+            NutrientDataProcessor processor = new NutrientDataProcessor(user.getUserId(), fromDate, toDate, dynamoDB, new ObjectMapper());
             processor.process();
         });
     }

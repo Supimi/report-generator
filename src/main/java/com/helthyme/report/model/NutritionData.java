@@ -17,11 +17,11 @@ public class NutritionData {
     private String userId;
 
     @DynamoDBRangeKey(attributeName = "created_date")
-    private String createdDate;
+    private Long createdDate;
 
     @DynamoDBAttribute(attributeName = "meal_id")
     private String mealId;
 
-    @DynamoDBAttribute(attributeName = "edamamResponse")
+    @DynamoDBAttribute(attributeName = "edamam_response")
     private NutritionAnalysis edamamResponse;
 }
