@@ -68,7 +68,7 @@ public class NutrientDataProcessor {
             if (nutrientItemMap.containsKey(Constants.NutrientGroups.CARBOHYDRATE)) {
                 NutrientItem nutrientItem = nutrientItemMap.get(Constants.NutrientGroups.CARBOHYDRATE);
                 double quantity = getAmountInGrams(nutrientItem.getUnit(), nutrientItem.getQuantity());
-                totalNutrientSumForItems.put(Constants.NutrientGroups.CARBOHYDRATE, new Item(nutrientItem.getLabel(),
+                totalNutrientSumForItems.put(Constants.NutrientGroups.CARBOHYDRATE, new Item("Carbohydrate",
                         quantity));
                 this.totalWeight += quantity;
                 nutrientItemMap.remove(Constants.NutrientGroups.CARBOHYDRATE);
